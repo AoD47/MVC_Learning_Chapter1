@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BabyStore.DAL;
+using BabyStore.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using BabyStore.DAL;
-using BabyStore.Models;
 
 namespace BabyStore.Controllers
 {
@@ -18,7 +15,7 @@ namespace BabyStore.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.OrderBy(c => c.CategoryName).ToList());
         }
 
         // GET: Categories/Details/5
@@ -47,7 +44,7 @@ namespace BabyStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Category category)
+        public ActionResult Create([Bind(Include = "ID,CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +76,7 @@ namespace BabyStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Category category)
+        public ActionResult Edit([Bind(Include = "ID,CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -111,6 +108,10 @@ namespace BabyStore.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categories.Find(id);
+            foreach (var p in category.Products)
+            {
+                p.CategoryID = null;
+            }
             db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
