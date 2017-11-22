@@ -196,3 +196,8 @@ E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\obj\Deb
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.AddNameValidation.resources
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.ProductValidation.resources
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.ProductPriceRegex.resources
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.InitialDatabase.resources
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.AddNameValidation.resources
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.ProductValidation.resources
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.ProductPriceRegex.resources
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.csproj.GenerateResource.Cache
