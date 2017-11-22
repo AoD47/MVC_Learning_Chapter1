@@ -17,23 +17,24 @@ namespace BabyStore.Controllers
         public ActionResult Index(string category, string search)
         {
             IQueryable<Product> products = db.Products.Include(p => p.Category);
-            IQueryable<Category> categories = db.Categories
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                products = products.Where(p => p.ProductName.Contains(search) ||
+                p.Description.Contains(search) ||
+                p.Category.CategoryName.Contains(search));
+                ViewBag.Search = search;
+            }
 
             if (!String.IsNullOrEmpty(category))
             {
                 products = products.Where(p => p.Category.CategoryName == category);
             }
 
-            if (!String.IsNullOrEmpty(search))
-            {
-                products = products.Where(
-                    p => p.ProductName.Contains(search) || 
-                    p.Description.Contains(search) || 
-                    p.Category.CategoryName.Contains(search)
-                );
-            }
-            
-            return View(products.OrderBy(p => p.Category.CategoryName).ToList());
+            IQueryable<string> categories = products.OrderBy(p => p.Category.CategoryName).Select(p => p.Category.CategoryName).Distinct();
+            ViewBag.Category = new SelectList(categories);
+
+            return View(products.ToList());
         }
 
         // GET: Products/Details/5
