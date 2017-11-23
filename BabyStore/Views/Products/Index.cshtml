@@ -1,21 +1,52 @@
 ﻿@model IEnumerable<BabyStore.Models.Product>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td1, td2, td3, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td1 = tr[i].getElementsByTagName("td")[0];
+            td2 = tr[i].getElementsByTagName("td")[1];
+            td3 = tr[i].getElementsByTagName("td")[2];
+            if (td1 || td2 || td3) {
+                if ((td1.innerHTML.toUpperCase().indexOf(filter) > -1) || (td2.innerHTML.toUpperCase().indexOf(filter) > -1) || (td3.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 @{
     ViewBag.Title = "Index";
 }
 <h2>Index</h2>
-
-<p>
+<div>
     @Html.ActionLink("Create New", "Create")
-    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
-    {
-        <label>Filter by category:</label> @Html.DropDownList("Category", "All")
-        <input type="submit" value="Filter" />
-        <input type="hidden" name="Search" id="Search" value="@ViewBag.Search" />
-    }
+</div>
+<div style="margin:15px">
+    <div style="float:left; margin-bottom:15px">
+        @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+        {
+            <label>Filter by category:</label> @Html.DropDownList("Category", "All")
+            <input type="submit" value="Filter" />
+        }
+    </div>
+    <div style="float:right; margin-bottom:15px">
+        <label>Search through results:</label>
+        <!-- This is to filter out table for values -->
+        <input id="myInput" type="text" oninput="myFunction()" placeholder="Search for Products.." />
+    </div>
+</div>
 
-</p>
-<table class="table">
+<table id="myTable" class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Category.CategoryName)
