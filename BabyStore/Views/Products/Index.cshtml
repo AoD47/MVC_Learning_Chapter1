@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BabyStore.Models.Product>
+﻿@model BabyStore.ViewModels.ProductIndexViewModel
 <script>
     function myFunction() {
         // Declare variables
@@ -35,9 +35,12 @@
     <div style="float:left; margin-bottom:15px">
         @using (Html.BeginForm("Index", "Products", FormMethod.Get))
         {
-            <label>Filter by category:</label> @Html.DropDownList("Category", "All")
+            <label>Filter by category:</label>
+            @Html.DropDownListFor(vm => vm.Category, Model.CatFilterItems, "All");
+            <label>Sort by:</label>
+            @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default")
             <input type="submit" value="Filter" />
-        }
+            <input type="hidden" name="Search" id="Search" value="@Model.Search" />}
     </div>
     <div style="float:right; margin-bottom:15px">
         <label>Search through results:</label>
@@ -49,21 +52,21 @@
 <table id="myTable" class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
+            @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayNameFor(model => model.Products.First().ProductName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Products.First().Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Products.First().Price)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Products)
     {
         <tr>
             <td>
