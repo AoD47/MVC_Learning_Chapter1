@@ -202,3 +202,7 @@ C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migration
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.csproj.GenerateResource.Cache
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\AjaxControlToolkit.dll
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\bin\AjaxControlToolkit.dll
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\PagedList.dll
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\PagedList.Mvc.dll
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\PagedList.xml
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\PagedList.Mvc.xml
