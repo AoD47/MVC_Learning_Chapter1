@@ -8,7 +8,6 @@ using System.Net;
 using System.Web.Mvc;
 using BabyStore.ViewModels;
 using System.Collections.Generic;
-using PagedList;
 
 namespace BabyStore.Controllers
 {
@@ -17,14 +16,12 @@ namespace BabyStore.Controllers
         private StoreContext db = new StoreContext();
 
         // GET: Products
-        public ActionResult Index(string category, string search, string sortBy, int? page)
+        public ActionResult Index(string category, string search, string sortBy)
         {
             //instantiate a new view model
             ProductIndexViewModel viewModel = new ProductIndexViewModel();
-
             //select the products
             var products = db.Products.Include(p => p.Category);
-
             //perform the search and save the search string to the viewModel
             if (!String.IsNullOrEmpty(search))
             {
@@ -48,7 +45,6 @@ namespace BabyStore.Controllers
             if (!String.IsNullOrEmpty(category))
             {
                 products = products.Where(p => p.Category.CategoryName == category);
-                viewModel.Category = category;
             }
             //sort the results
             switch (sortBy)
@@ -60,20 +56,10 @@ namespace BabyStore.Controllers
                     products = products.OrderByDescending(p => p.Price);
                     break;
                 default:
-                    products = products.OrderBy(p => p.ProductName);
                     break;
             }
-            //change
-            const int PageItems = 10;
-            int currentPage = (page ?? 1);
-            viewModel.Products = products.ToPagedList(currentPage, PageItems);
-            viewModel.SortBy = sortBy;
-            // change done
-            viewModel.Sorts = new Dictionary<string, string>
-            {
-                { "Price low to high", "price_lowest" },
-                { "Price high to low", "price_highest" }
-            };
+            viewModel.Products = products;
+            viewModel.Sorts = new Dictionary<string, string> { { "Price low to high", "price_lowest" }, { "Price high to low", "price_highest" } };
             return View(viewModel);
         }
 
