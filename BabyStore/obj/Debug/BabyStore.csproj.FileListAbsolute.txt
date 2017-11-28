@@ -91,7 +91,6 @@ C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\Microsoft.AI.DependencyCo
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\Microsoft.AI.WindowsServer.xml
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\Microsoft.AI.Web.xml
-C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.csprojResolveAssemblyReference.cache
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.dll
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.pdb
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\bin\ApplicationInsights.config
