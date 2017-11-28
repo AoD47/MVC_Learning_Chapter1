@@ -33,8 +33,8 @@
 </div>
 <div style="margin:15px">
     <div style="float:left; margin-bottom:15px">
-        @using (Html.BeginForm("Index", "Products", FormMethod.Get))
-        {
+       @using (Html.BeginRouteForm("ProductsIndex", FormMethod.Get))
+       {
             <label>Filter by category:</label>
             @Html.DropDownListFor(vm => vm.Category, Model.CatFilterItems, "All");
             <label>Sort by:</label>

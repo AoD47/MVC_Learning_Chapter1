@@ -45,6 +45,7 @@ namespace BabyStore.Controllers
             if (!String.IsNullOrEmpty(category))
             {
                 products = products.Where(p => p.Category.CategoryName == category);
+                ViewBag.category = category;
             }
             //sort the results
             switch (sortBy)
