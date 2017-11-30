@@ -21,7 +21,7 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.CategoryName, "Index", "Products", new { category = item.CategoryName }, null)
+                @Html.RouteLink(item.CategoryName, "ProductsbyCategory", new { category = item.CategoryName })
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

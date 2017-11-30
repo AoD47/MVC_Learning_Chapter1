@@ -202,3 +202,4 @@ C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.csproj.Ge
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\bin\AjaxControlToolkit.dll
 E:\Google Drive\Development\Learning\MVC\MVC_Learning_Chapter1\BabyStore\bin\AjaxControlToolkit.dll
 C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.csprojResolveAssemblyReference.cache
+C:\Andre\BabyStore\MVC_Learning_Chapter1\BabyStore\obj\Debug\BabyStore.Migrations.ProductImages.resources
